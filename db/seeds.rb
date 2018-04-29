@@ -24,7 +24,7 @@ puts "5 skills created"
 
 9.times do |gallery_item|
   Gallery.create!(
-    title: "Gallery title: #{gallery_item}",
+    title: "Project: #{gallery_item}",
     subtitle: "My great service",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
           dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
