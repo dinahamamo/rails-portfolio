@@ -34,7 +34,6 @@ class GalleriesController < ApplicationController
   end
 
 
-
   private
   def set_gallery_item
     @gallery_item = Gallery.find(params[:id])
