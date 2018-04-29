@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-
+  before_action :set_gallery_item, only: [:edit, :update]
   def index
     @gallery_items = Gallery.all
   end
@@ -20,7 +20,26 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @gallery_item.update(gallery_item_params)
+        format.html { redirect_to galleries_path, notice: "Your project was successfully updated" }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+
+
   private
+  def set_gallery_item
+    @gallery_item = Gallery.find(params[:id])
+  end
+
   def gallery_item_params
     params.require(:gallery).permit(:title, :subtitle, :body)
   end
