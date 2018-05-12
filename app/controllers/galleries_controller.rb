@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery_item, only: [:edit, :update, :show]
+  before_action :set_gallery_item, only: [:edit, :update, :show, :destroy]
   def index
     @gallery_items = Gallery.all
   end
@@ -35,6 +35,13 @@ class GalleriesController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @gallery_item.destroy
+    respond_to do |format|
+      format.html { redirect_to galleries_url, notice: "Record was removed."}
+    end
   end
 
   private

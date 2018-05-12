@@ -7,4 +7,6 @@
   <p><%= project.body %></p>
   <%= image_tag project.thumb_image unless project.thumb_image.nil? %>
   <%= link_to "Edit",  edit_gallery_path(project) %>
+  <%= link_to "Delete Project", gallery_path(project),  method: :delete, data: { confirm: "Are you sure?"} %>
+  
 <% end %>
