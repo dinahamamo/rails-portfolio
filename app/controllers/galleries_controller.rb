@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery_item, only: [:edit, :update]
+  before_action :set_gallery_item, only: [:edit, :update, :show]
   def index
     @gallery_items = Gallery.all
   end
@@ -7,6 +7,7 @@ class GalleriesController < ApplicationController
   def new
     @gallery_item = Gallery.new
   end
+  
 
   def create
     @gallery_item = Gallery.new(gallery_item_params)
@@ -33,6 +34,8 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def show
+  end
 
   private
   def set_gallery_item
